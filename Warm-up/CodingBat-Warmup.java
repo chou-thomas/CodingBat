@@ -117,3 +117,80 @@ nearHundred(89) → false
 public boolean nearHundred(int n) {
   return(Math.abs(100-n) <=10 || (Math.abs(200-n) <=10));
 }
+
+/* Warmup -1 posNeg
+
+Given 2 int values, return true if one is negative and one is positive. Except if the parameter "negative" is true,
+then return true only if both are negative.
+
+posNeg(1, -1, false) → true
+posNeg(-1, 1, false) → true
+posNeg(-4, -5, true) → true
+
+*/
+
+public boolean posNeg(int a, int b, boolean negative) {
+  if (negative){
+    return (a < 0 && b < 0);
+  }
+  else{
+    return ((a < 0 && b > 0) || (a > 0 && b< 0));
+  }
+}
+
+/* Warmup -1 notString
+
+Given a string, return a new string where "not " has been added to the front. However, 
+if the string already begins with "not", return the string unchanged. Note: use .equals() to compare 2 strings.
+
+notString("candy") → "not candy"
+notString("x") → "not x"
+notString("not bad") → "not bad"
+
+*/
+
+public String notString(String str) {
+  if (str.length() >= 3 && str.substring(0, 3).equals("not")) {
+    return str;
+  }
+  
+  return "not " + str;
+  
+}
+
+/* Warmup-1 missingChar
+
+
+Given a non-empty string and an int n, return a new string where the char at index n has been removed. The value of n will be a valid index of a char in the original string (i.e. n will be in the range 0..str.length()-1 inclusive).
+
+missingChar("kitten", 1) → "ktten"
+missingChar("kitten", 0) → "itten"
+missingChar("kitten", 4) → "kittn"
+
+*/
+
+public String missingChar(String str, int n) {
+  String front = str.substring(0, n);
+  
+  String back = str.substring(n+1, str.length());
+  
+  return front + back;
+}
+
+/* Warmup-1 frontBack
+
+Given a string, return a new string where the first and last chars have been exchanged.
+
+frontBack("code") → "eodc"
+frontBack("a") → "a"
+frontBack("ab") → "ba"
+
+*/
+
+public String frontBack(String str) {
+  if (str.length() <= 1) return str;
+  
+  String mid = str.substring(1, str.length()-1);
+  
+  return str.charAt(str.length()-1) + mid + str.charAt(0);
+}
